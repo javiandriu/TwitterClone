@@ -7,6 +7,10 @@ const validatorRegister = [
   .exists()
   .notEmpty()
   .isLength({min:3, max:99}),
+  check("age")
+  .exists()
+  .notEmpty()
+  .isNumeric(),
   check("email")
   .exists()
   .notEmpty()
