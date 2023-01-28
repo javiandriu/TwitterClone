@@ -14,7 +14,7 @@ const UserScheme = new mongoose.Schema(
         },
         age:{
           type: Number
-      },
+        },
         email:{
             type: String,
             unique:true
@@ -24,11 +24,12 @@ const UserScheme = new mongoose.Schema(
             select: false
         },
         role:{
-            type:["user","admin"],
+            type:["user","zaque"],
             default: "user"
         },
-        isActived:{
-            type: Boolean
+        isActive:{
+            type: Boolean,
+            default:true
         },
     },
     {
