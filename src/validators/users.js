@@ -15,4 +15,21 @@ const validatorCreateUser = [
     }
 ];
 
-module.exports = {validatorCreateUser}
+const validatorGetUser = [
+  check("id").exists().notEmpty().isMongoId(),
+  (req,res,next) => {
+      return validateResults(req,res,next)
+  }
+];
+
+const validatorUpdateUser = [
+  check("name").notEmpty(),
+  check("lastName").notEmpty(),
+  check("nickName").notEmpty(),
+  check("age").notEmpty(),
+    (req,res,next) => {
+        return validateResults(req,res,next)
+    }
+];
+
+module.exports = {validatorCreateUser,validatorGetUser,validatorUpdateUser}
