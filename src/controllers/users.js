@@ -28,7 +28,6 @@ const createNewUser = async (req,res) => {
     const body = matchedData(req)
     const newUser = await usersModel.create(body)
     newUser.password = undefined
-    console.log({newUser})
     res.send(newUser)
   }catch(e){
     handleHttpError(res, "ERROR_CREATE_USER")

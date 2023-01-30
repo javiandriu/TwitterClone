@@ -9,6 +9,8 @@ app.use(express.json())
 
 const port = process.env.PORT
 app.use("/api/user", require("./src/routes/users"))
+app.use("/api/tweet", require("./src/routes/tweets"))
+
 
 app.listen(port, () => {
     console.log(`Your app is running in http://localhost:${port}`)
