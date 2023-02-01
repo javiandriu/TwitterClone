@@ -27,8 +27,13 @@ const getTweetsByUser = async (req,res) => {
 
 const getCreateTweet = async (req,res) => {
   try{
+    console.log(req.userId)
     const body = matchedData(req)
-    const newTweet = await tweetsModel.create(body)
+    const {userId} = req
+    const newTweet = await tweetsModel.create({
+      ...body,
+      userId
+    })
     res.send({newTweet})
   }catch(e){
     handleHttpError(res, "ERROR_CREATE_NEW_TWEET",404)

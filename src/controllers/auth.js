@@ -1,6 +1,6 @@
 const {matchedData} = require ("express-validator")
 const {encrypt, compare} = require("../utils/handlePassword")
-const {handleHttpError} = require("../utils/handleError")
+const handleHttpError = require("../utils/handleError")
 const {tokenSign} = require("../utils/handleJWT")
 const {usersModel} =  require("../models/index")
 
@@ -20,6 +20,7 @@ const registerController = async (req, res) => {
     }
     res.send({data})
   }catch(e){
+    console.log(e)
     handleHttpError(res, "ERROR_REGISTER_USER")
   }
 }
@@ -27,7 +28,7 @@ const registerController = async (req, res) => {
 const loginController = async (req, res) => {
   try{
     req = matchedData(req)
-    const user = await usersModel.findOne({email:req.email})
+    const user = await usersModel.findOne({email:req.email}).select('password')
     .select('password name role email')
     if(!user){
       handleHttpError(res, "USER_NOT_EXITS", 404);

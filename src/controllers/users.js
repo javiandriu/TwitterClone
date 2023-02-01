@@ -20,7 +20,7 @@ const getUserById = async (req,res) => {
     res.send({userById})
 }catch(e){
     handleHttpError(res, "NOT_FOUND_USER",404)
-}
+  }
 }
 
 const createNewUser = async (req,res) => {
@@ -55,7 +55,7 @@ const deleteUser = async (req,res) => {
     res.send({deletedUser})
 }catch(e){
     handleHttpError(res, "ERROR_DELETE_USER")
-}
+  }
 }
 
 module.exports = {getAllUsers, getUserById, createNewUser, updateUser, deleteUser}
