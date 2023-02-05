@@ -27,7 +27,7 @@ const TweetScheme = new mongoose.Schema(
         },
         userId:{
           type: mongoose.ObjectId,
-          require:true
+          required:true
         },
         retweetId:{
             type: mongoose.ObjectId

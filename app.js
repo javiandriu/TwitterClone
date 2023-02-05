@@ -11,7 +11,7 @@ const port = process.env.PORT
 app.use("/api/auth", require("./src/routes/auth"))
 app.use("/api/user", require("./src/routes/users"))
 app.use("/api/tweet", require("./src/routes/tweets"))
-app.use("/api/follower", require("./src/routes/followers"))
+app.use("/api/follow", require("./src/routes/follows"))
 
 app.listen(port, () => {
     console.log(`Your app is running in http://localhost:${port}`)
