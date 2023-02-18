@@ -1,5 +1,6 @@
 const handleHttpError = require("../utils/handleError")
 const {verifyToken} = require("../utils/handleJWT")
+
 const authMiddleware = async (req,res,next) => {
   try{
     if(!req.headers.authorization) {

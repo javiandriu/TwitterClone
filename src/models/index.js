@@ -4,6 +4,7 @@ const models = {
     likesModel: require("./noSQL/likes"),
     surveysModel: require("./noSQL/surveys"),
     followersModel: require("./noSQL/followers"),
+    imagesModel: require("./noSQL/images"),
     surveyResultsModel: require("./noSQL/survey_results"),
   }
 

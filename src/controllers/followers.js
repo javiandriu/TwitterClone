@@ -61,14 +61,12 @@ const unFollower = async (req,res) => {
   try{
   req = matchedData(req)
   const {id, followsId}= req
-  console.log(req)
   const collectionId = await followersModel.find({userId:id,followerId:followsId})
   console.log(collectionId)
   if (!collectionId.length){
     handleHttpError(res, "THE FOLLOWER THAT WANT TO DELETE WAS DELETED BEFORE")
   }else {
     const deletedFollower=  await followersModel.deleteOne({userId:id,followerId:followsId})
-    console.log({deletedFollower})
     res.send("THE FOLLOWER WAS DELETED SUCCESSFULY")
   }
 

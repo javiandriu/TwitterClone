@@ -25,7 +25,7 @@ const getTweetsByUser = async (req,res) => {
   }
 }
 
-const getCreateTweet = async (req,res) => {
+const postCreateTweet = async (req,res) => {
   try{
     console.log(req.userId)
     const body = matchedData(req)
@@ -63,4 +63,4 @@ const deleteTweet = async (req,res) => {
   }
 }
 
-module.exports = {getTweetById, getTweetsByUser, getCreateTweet, updateTweet, deleteTweet}
+module.exports = {getTweetById, getTweetsByUser, postCreateTweet, updateTweet, deleteTweet}
