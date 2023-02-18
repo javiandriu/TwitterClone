@@ -1,6 +1,7 @@
 const handleHttpError = require("../utils/handleError")
 const {matchedData} = require("express-validator")
-const {tweetsModel} = require("../models/index")
+const {tweetsModel, storagesModel} = require("../models/index")
+const storage = require("../models/noSQL/storage")
 
 
 
@@ -27,7 +28,6 @@ const getTweetsByUser = async (req,res) => {
 
 const postCreateTweet = async (req,res) => {
   try{
-    console.log(req.userId)
     const body = matchedData(req)
     const {userId} = req
     const newTweet = await tweetsModel.create({

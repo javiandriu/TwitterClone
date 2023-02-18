@@ -10,6 +10,7 @@ const validatorGetTweet = [
 
 const validatorCreateTweet = [
   check("comment").exists().notEmpty().isLength({min:1, max: 250}),
+  check("image").isString(),
     (req,res,next) => {
         return validateResults(req,res,next)
     }

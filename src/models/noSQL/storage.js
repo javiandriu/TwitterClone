@@ -1,16 +1,14 @@
 const mongoose = require("mongoose")
 
-const ImageStorageScheme = new mongoose.Schema(
+const StorageScheme = new mongoose.Schema(
     {
-        imageUrl: {
+        url: {
             type: String
         },
         filename: {
             type: String
         },
-        tweetId : {
-            type: mongoose.ObjectId
-        }
+        
     },
     {
         timestamps:true,
@@ -18,4 +16,4 @@ const ImageStorageScheme = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("imageStorage", ImageStorageScheme)
+module.exports = mongoose.model("storage", StorageScheme)
