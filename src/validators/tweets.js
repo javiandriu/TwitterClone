@@ -8,6 +8,13 @@ const validatorGetTweet = [
   }
 ];
 
+const validatorGetTweetByUser = [
+  check("id").exists().notEmpty().isMongoId(),
+  (req,res,next) => {
+      return validateResults(req,res,next)
+  }
+];
+
 const validatorCreateTweet = [
   check("comment").exists().notEmpty().isLength({min:1, max: 250}),
   check("image").isString(),
@@ -23,4 +30,4 @@ const validatorUpdateTweet = [
     }
 ];
 
-module.exports = {validatorGetTweet, validatorCreateTweet, validatorUpdateTweet}
+module.exports = {validatorGetTweet, validatorGetTweetByUser, validatorCreateTweet, validatorUpdateTweet}

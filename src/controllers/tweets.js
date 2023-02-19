@@ -1,6 +1,6 @@
 const handleHttpError = require("../utils/handleError")
 const {matchedData} = require("express-validator")
-const {tweetsModel, storagesModel} = require("../models/index")
+const {tweetsModel} = require("../models/index")
 const storage = require("../models/noSQL/storage")
 
 
@@ -15,11 +15,12 @@ const getTweetById = async (req,res) => {
     handleHttpError(res, "NOT_FOUND_TWEET_BY_ID",404)
   }
 }
+
+
 const getTweetsByUser = async (req,res) => {
   try{
-    req = matchedData(req)
-    const {userId} = req
-    const tweetsByUser = await tweetsModel.find(userId)
+    const {id} = matchedData(req)
+    const tweetsByUser = await tweetsModel.find({userId:id})
     res.send({tweetsByUser})
   }catch(e){
     handleHttpError(res, "NOT_FOUND_TWEET_BY_USER",404)

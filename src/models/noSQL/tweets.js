@@ -8,9 +8,6 @@ const TweetScheme = new mongoose.Schema(
         image: {
             type: [String]
         },
-        gif: {
-          type: [String]
-        },
         video:{
           type: [String]
         },
