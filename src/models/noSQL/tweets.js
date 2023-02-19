@@ -12,7 +12,8 @@ const TweetScheme = new mongoose.Schema(
           type: [String]
         },
         amountLikes: {
-          type: Number
+          type: Number,
+          default:0 
         },
         isRetweeted:{
             type: Boolean,

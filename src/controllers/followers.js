@@ -20,10 +20,7 @@ const addNewFollower = async (req,res) => {
       })
       res.send(newFollower)
     }
-    
-    
   }catch(e){
-    console.log(e)
     handleHttpError(res, e.message)
     }
 }

@@ -3,10 +3,12 @@ const mongoose = require("mongoose")
 const LikeScheme = new mongoose.Schema(
     {
         userId:{
-            type: mongoose.ObjectId
+            type: mongoose.ObjectId,
+            index:true
         },
         tweetId:{
-            type: mongoose.ObjectId
+            type: mongoose.ObjectId,
+            index:true
         }
     },
     {
@@ -14,5 +16,5 @@ const LikeScheme = new mongoose.Schema(
         versionKey:false
     }
 );
-
+LikeScheme.index({ userId: 1, tweetId: 1 }, { unique: true })
 module.exports = mongoose.model("likes", LikeScheme)
